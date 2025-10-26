@@ -1,20 +1,37 @@
 package com.flogin.controller;
 
+import com.flogin.dto.product.ProductRequestDTO;
+import com.flogin.dto.product.ProductResponseDTO;
+import com.flogin.entity.Product;
+import com.flogin.service.ProductService;
+import jakarta.validation.Valid;
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+@RequestMapping("/products")
+@RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/products")
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class ProductController {
-
-    @GetMapping
-    public String getAllProducts() {
-        // TODO: Implement get all products
-        return "Products list";
-    }
-
+    ProductService productService;
     @PostMapping
-    public String createProduct(@RequestBody String product) {
-        // TODO: Implement create product
-        return "Product created";
+    public ResponseEntity<ProductResponseDTO> createProduct(@RequestBody @Valid ProductRequestDTO productRequestDTO) {
+        return ResponseEntity.ok(productService.createProduct(productRequestDTO));
+    }
+    @PutMapping("/{id}")
+    public ResponseEntity<ProductResponseDTO> updateProduct(@RequestBody @Valid ProductRequestDTO productRequestDTO, @PathVariable Long id) {
+        return ResponseEntity.ok(productService.updateProduct(id, productRequestDTO));
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<ProductResponseDTO> getProduct(@PathVariable Long id) {
+        return ResponseEntity.ok(productService.getProduct(id));
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ProductResponseDTO> deleteProduct(@PathVariable Long id) {
+        return ResponseEntity.ok(productService.deleteProduct(id));
     }
 }

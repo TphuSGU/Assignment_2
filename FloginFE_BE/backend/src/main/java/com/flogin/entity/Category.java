@@ -9,15 +9,9 @@ import lombok.experimental.FieldDefaults;
 @Getter
 @Setter
 @Entity
-@Table(name = "users")
+@Table(name = "categories")
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class User extends BaseEntity {
-    @Column(nullable = false)
-    String fullName;
-
+public class Category extends BaseEntity{
     @Column(nullable = false, unique = true)
-    String username;
-
-    @Column(nullable = false)
-    String password;
+    private String name;
 }

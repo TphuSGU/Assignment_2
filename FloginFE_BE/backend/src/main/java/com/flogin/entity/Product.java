@@ -1,39 +1,32 @@
 package com.flogin.entity;
 
 import jakarta.persistence.*;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
+import java.math.BigDecimal;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name = "products")
-public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class Product extends BaseEntity {
+    @Column(nullable = false)
     private String name;
-    private Double price;
 
-    // Getters and Setters
-    public Long getId() {
-        return id;
-    }
+    @Column
+    private BigDecimal price = BigDecimal.ZERO;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @Column
+    private int quantity = 0;
 
-    public String getName() {
-        return name;
-    }
+    @Column
+    private String description = "";
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", nullable = false)
+    private Category category;
 }
