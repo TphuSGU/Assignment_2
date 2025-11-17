@@ -8,6 +8,13 @@ describe('Login E2E Tests', () => {
     cy.get('[data-testid="login-button"]').should('be.visible')
   })
   it('Nen login thanh cong voi credentials hop le', () => {
+    // chan mock do be goi db that
+    cy.intercept('POST', 'auth/login', {
+      statusCode: 200,
+      body:{
+        accessToken: "fake_jwt_token", header: "Bearer"
+      }
+    }).as("loginRequest")
     cy.get('[data-testid="username-input"]').type('admin123')
     cy.get('[data-testid="password-input"]').type('admin123')
     cy.get('[data-testid="login-button"]').click()
