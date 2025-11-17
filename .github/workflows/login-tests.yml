@@ -19,6 +19,10 @@ jobs:
           cd FloginFE_BE/frontend
           npm install
 
+      - name: Start Frontend
+        run: |
+          cd FloginFE_BE/frontend
+          npm start
       - name: Run Login E2E Tests
         run: |
           cd FloginFE_BE/frontend
