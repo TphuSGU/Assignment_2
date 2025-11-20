@@ -22,6 +22,18 @@ jobs:
           cd FloginFE_BE/backend
           docker compose up -d
 
+      - name: Wait for MySQL
+        run: |
+          cd FloginFE_BE/backend
+          for i in {1..60}; do
+            if docker compose exec -T mysql mysqladmin ping -h localhost -u root -proot &>/dev/null; then
+              echo "MySQL is ready!"
+              break
+            fi
+            echo "Waiting for MySQL... ($i/60)"
+            sleep 2
+          done
+
       - name: Wait for backend
         run: |
           cd FloginFE_BE/backend
@@ -30,7 +42,7 @@ jobs:
               echo "Backend ready!"
               exit 0
             fi
-            echo "Waiting for backend..."
+            echo "Waiting for backend... ($i/30)"
             sleep 2
           done
           echo "Backend did not start in time!"
