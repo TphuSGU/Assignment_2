@@ -20,7 +20,7 @@ jobs:
       - name: Start backend + services
         run: |
           cd FloginFE_BE/backend
-          docker-compose up -d
+          docker compose up -d
 
       - name: Check backend health
         run: |
