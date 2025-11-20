@@ -6,3 +6,14 @@ services:
       - 'MYSQL_ROOT_PASSWORD=root'
     ports:
       - '3306:3306'
+  backend:
+    build: ./backend
+    environment:
+      DB_HOST: mysql
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_NAME: login-product
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
