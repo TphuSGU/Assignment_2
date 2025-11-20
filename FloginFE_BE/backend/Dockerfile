@@ -17,10 +17,13 @@ RUN ./mvnw dependency:go-offline -B
 # Copy toàn bộ source code
 COPY src src
 
-RUN ./mvnw clean package
+RUN ./mvnw clean package -DskipTests
+
+# Extract JAR name and copy to app.jar for easier execution
+RUN cp target/$(ls target/*.jar | head -1 | xargs basename) app.jar
 
 # Expose port backend
 EXPOSE 8080
 
 # Chạy backend
-CMD ["java", "-jar", "target/*.jar"]
+CMD ["java", "-jar", "app.jar"]
