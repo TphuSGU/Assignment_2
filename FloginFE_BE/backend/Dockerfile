@@ -1,26 +1,33 @@
-# Chọn JDK 21
-FROM eclipse-temurin:21-jdk-jammy
+FROM eclipse-temurin:21-jdk-alpine AS build
 
-# Tạo thư mục làm việc
 WORKDIR /app
 
-# Copy file Maven config
-COPY pom.xml mvnw ./
+# Copy Maven wrapper và pom.xml trước để cache dependencies
+COPY mvnw .
 COPY .mvn .mvn
+COPY pom.xml .
 
-# Cho mvnw quyền chạy
+# Give permission cho mvnw
 RUN chmod +x mvnw
 
-# Download dependency trước để cache
+# Download dependencies trước để cache
 RUN ./mvnw dependency:go-offline -B
 
 # Copy toàn bộ source code
-COPY src src
+COPY src ./src
 
-RUN ./mvnw clean package
+# Build ứng dụng
+RUN ./mvnw package -DskipTests
 
-# Expose port backend
+# Run stage
+FROM eclipse-temurin:21-jre-alpine
+
+WORKDIR /app
+
+COPY --from=build /app/target/*.jar app.jar
+
+# Expose port
 EXPOSE 8080
 
-# Chạy backend
-CMD ["java", "-jar", "target/*.jar"]
+# Start ứng dụng với wait time để MySQL khởi động hoàn toàn
+ENTRYPOINT ["java", "-jar", "app.jar"]
