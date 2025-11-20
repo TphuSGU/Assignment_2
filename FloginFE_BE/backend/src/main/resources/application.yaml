@@ -24,3 +24,6 @@ app:
   jwt:
     secret: H3l1Y3dOqMvz71IGsTtRJo+z6ZJbBDezA1clo0uWpvmVa2TqZZIfWFlTCXAbA1XZ+ZkRX0GG1VoPZkAEXmNvNg==
     expiration: 3636363636
+server:
+  port: 8080
+  address: 0.0.0.0
