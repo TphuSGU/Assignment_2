@@ -1,0 +1,28 @@
+name: Test Perfomance With K6
+
+on:
+  push:
+    branches: ['*']
+  pull_request:
+    branches: ['*']
+
+jobs:
+  backend-compose:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v3
+
+      - name: Start backend + services
+        working-directory: ./backend
+        run: |
+          docker-compose up -d
+
+      - name: Check backend health
+        working-directory: ./backend
+        run: |
+          curl -f http://localhost:8080/actuator/health || exit 1
