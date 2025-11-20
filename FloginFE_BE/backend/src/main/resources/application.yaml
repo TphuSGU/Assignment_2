@@ -13,7 +13,7 @@ spring:
 
   docker:
     compose:
-      file: FloginFE_BE/backend/compose.yaml
+      file: FloginFE_BE/backend/docker-compose.yml
 
   jpa:
     hibernate:
