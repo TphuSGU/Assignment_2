@@ -20,6 +20,5 @@ describe('Login Component', () => {
     fireEvent.change(passwordInput, { target: { value: 'password123' } });
     fireEvent.click(submitButton);
 
-    // TODO: Add assertions for API call
   });
 });
