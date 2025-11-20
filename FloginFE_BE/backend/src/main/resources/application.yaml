@@ -3,7 +3,7 @@ spring:
     name: login-product
 
   datasource:
-    url: jdbc:mysql://localhost:3306/login_product
+    url: jdbc:mysql://localhost:3306/login-product
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
