@@ -7,7 +7,7 @@ services:
     ports:
       - '3306:3306'
   backend:
-    build: ./backend
+    build: .
     environment:
       DB_HOST: mysql
       DB_USER: root
