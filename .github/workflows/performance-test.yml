@@ -1,4 +1,4 @@
-name: Test Perfomance With K6
+name: Test Performance With K6
 
 on:
   push:
@@ -17,36 +17,40 @@ jobs:
       - name: Set up Docker
         uses: docker/setup-buildx-action@v3
 
-      - name: Start backend + services
+      - name: Stop & remove old containers
         run: |
           cd FloginFE_BE/backend
+          docker compose down --remove-orphans
+
+      - name: Build and start backend + MySQL
+        run: |
+          cd FloginFE_BE/backend
+          docker compose build --no-cache
           docker compose up -d
 
-      - name: Wait for MySQL
+      - name: Wait for MySQL to be ready
         run: |
           cd FloginFE_BE/backend
-          for i in {1..60}; do
-            if docker compose exec -T mysql mysqladmin ping -h localhost -u root -proot &>/dev/null; then
+          for i in {1..30}; do
+            if docker compose exec -T mysql mysqladmin ping -h localhost -uroot -proot &>/dev/null; then
               echo "MySQL is ready!"
               break
             fi
-            echo "Waiting for MySQL... ($i/60)"
+            echo "Waiting for MySQL... ($i/30)"
             sleep 2
           done
 
-      - name: Wait for backend
+      - name: Wait for backend to be ready
         run: |
           cd FloginFE_BE/backend
-          echo "Waiting for backend to be ready..."
           for i in {1..30}; do
-            if docker compose exec -T backend sh -c "wget -q --spider http://localhost:8080/actuator/health"; then
-              echo "✅ Backend is ready!"
+            if docker compose exec -T backend curl -f http://localhost:8080/actuator/health >/dev/null 2>&1; then
+              echo "Backend ready!"
               exit 0
             fi
-            echo "⏳ Waiting for backend... ($i/30)"
+            echo "Waiting for backend... ($i/30)"
             sleep 2
           done
-          echo "❌ Backend did not start in time!"
+          echo "Backend did not start in time!"
           docker compose logs backend
           exit 1
-      
