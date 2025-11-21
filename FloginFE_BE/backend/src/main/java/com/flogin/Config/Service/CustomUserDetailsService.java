@@ -1,4 +1,4 @@
-package com.flogin.controller.ConfigSecurity.Service;
+package com.flogin.Config.Service;
 
 import com.flogin.entity.User;
 import com.flogin.repository.UserRepository;

@@ -1,4 +1,4 @@
-package com.flogin.service.mapper;
+package com.flogin.mapper;
 
 import org.mapstruct.Mapper;
 
