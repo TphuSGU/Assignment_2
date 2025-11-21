@@ -1,4 +1,4 @@
-package com.flogin.controller.ConfigSecurity;
+package com.flogin.Config;
 import com.flogin.service.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

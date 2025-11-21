@@ -1,4 +1,4 @@
-package com.flogin.controller.ConfigSecurity;
+package com.flogin.Config;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

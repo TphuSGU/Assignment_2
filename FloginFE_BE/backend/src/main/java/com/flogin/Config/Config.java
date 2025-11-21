@@ -1,4 +1,4 @@
-package com.flogin.controller.ConfigSecurity;
+package com.flogin.Config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package com.flogin.controller.ConfigSecurity;
+package com.flogin.Config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
