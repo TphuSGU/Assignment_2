@@ -1,6 +1,6 @@
 export const getCategoryIdFromName = (categoryName, categoriesList) => {
   const category = categoriesList.find((cat) => cat.name === categoryName);
-  return category ? category.id : null;
+  return category ? `${category.id}` : null;
 };
 
 export const formatVND = (amount) => {
