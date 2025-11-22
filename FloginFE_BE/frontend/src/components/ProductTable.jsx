@@ -1,6 +1,14 @@
+import { useEffect } from "react";
+import { useProductStore } from "../stores/useProductStore";
 import { formatVND } from "../utils/helper";
 
-const ProductTable = ({ products, loading, onEdit, onDelete }) => {
+const ProductTable = ({ onEdit, onDelete }) => {
+  const { products, loading, getAllProducts } = useProductStore();
+
+  useEffect(() => {
+    getAllProducts();
+  }, []);
+
   if (loading) return <div className="loading">Đang tải...</div>;
 
   if (products.length === 0)
