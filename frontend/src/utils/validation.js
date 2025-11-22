@@ -1,8 +1,9 @@
+// validation.js
 // Validation utilities
 
 export const validateRequired = (value) => {
   if (!value || value.trim() === '') {
-    return 'This field is required';
+    return 'Trường này không được để trống';
   }
   return null;
 };
@@ -10,63 +11,58 @@ export const validateRequired = (value) => {
 export const validateEmail = (email) => {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!re.test(email)) {
-    return 'Invalid email format';
+    return 'Email không hợp lệ';
   }
   return null;
 };
 
 export const validateMinLength = (value, minLength) => {
   if (value.length < minLength) {
-    return `Must be at least ${minLength} characters`;
+    return `Phải có ít nhất ${minLength} ký tự`;
   }
   return null;
 };
 
-
-
- // validateUsername 
- 
+// validateUsername 
 export const validateUsername = (username) => {
   if (!username || username.trim() === "") {
-    return "Username does not empty";
+    return "Ten dang nhap khong duoc de trong";
   }
 
   if (username.length < 3) {
-    return "Username must be at least 3 characters";
+    return "Ten dang nhap phai co it nhat 3 ky tu";
   }
 
   if (username.length > 20) {
-    return "Username must not exceed 20 characters";
+    return "Ten dang nhap khong duoc qua 20 ky tu";
   }
 
-  
   const regex = /^[a-zA-Z0-9_]+$/;
   if (!regex.test(username)) {
-    return "Username can only contain letters, numbers, and underscores";
+    return "Ten dang nhap chi duoc chua chu cai, so va dau gach duoi";
   }
 
   return "";
 };
 
-  // validatePassword 
- 
-export const validatePasswordd = (password) => {
+// validatePassword 
+export const validatePassword = (password) => {
   if (!password || password.trim() === "") {
-    return "Password must not be empty";
+    return "Mat khau khong duoc de trong";
   }
 
   if (password.length < 6) {
-    return "Password must be at least 6 characters";
+    return "Mat khau phai co it nhat 6 ky tu";
   }
 
   if (password.length > 30) {
-    return "Password must not exceed 30 characters";
+    return "Mat khau khong duoc qua 30 ky tu";
   }
 
   const hasLetter = /[A-Za-z]/.test(password);
   const hasDigit = /[0-9]/.test(password);
   if (!hasLetter || !hasDigit) {
-    return "Password must contain both letters and numbers";
+    return "Mat khau phai chua ca chu va so";
   }
 
   return "";
