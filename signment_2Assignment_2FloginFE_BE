@@ -1,0 +1,73 @@
+[33mee73259[m[33m ([m[1;31morigin/main[m[33m)[m Merge pull request #20
+[33mcdf6f95[m[33m ([m[1;31morigin/nomkimchi[m[33m)[m fix e2e test
+[33m27e8542[m Merge pull request #19 from TphuSGU/phong
+[33mf36c60e[m[33m ([m[1;31morigin/phong[m[33m)[m Product Integration Test
+[33m32d8cf1[m Merge pull request #18
+[33m1b66e40[m viết câu 5 và câu 7
+[33m7cd1c0f[m Merge pull request #17
+[33m413cc90[m feat: add comprehensive assignment report and project configuration
+[33m9709d01[m Merge pull request #16
+[33m7203826[m refactor: streamline API intercepts in login and product setup
+[33maed2628[m Merge pull request #15
+[33mea05b76[m refactor: update product form validation and improve test visibility
+[33mb69377d[m Merge pull request #14 from TphuSGU/nomkimchi
+[33m084a456[m update application.yaml and ci.yml
+[33m0fc93bc[m k6 tests + ci/cd performance-test.yml
+[33mf9f0c14[m Merge pull request #13 from TphuSGU/phong
+[33mdd58bb7[m Fix Login Integration Test
+[33m6909d4a[m FE Login Integration Test
+[33m3e37a38[m anh ộ phù hộ cho em
+[33mbcbc841[m anh ộ phù hộ cho em
+[33mbb305b6[m anh ộ phù hộ cho em
+[33mad85e28[m anh ộ phù hộ cho em
+[33m58256f7[m anh ộ phù hộ cho em
+[33me242c3a[m anh ộ phù hộ cho em
+[33mc186e6e[m anh ộ phù hộ cho em
+[33m5536660[m pls run now
+[33mbd1ad17[m can't connect to database
+[33m95f8c4e[m can't connect to database
+[33m77e7ec7[m rename docker-compose.yml
+[33me24b201[m Add dockerfile to create backend image
+[33m458f499[m Add dockerfile to create backend image
+[33m0073658[m Add dockerfile to create backend image
+[33m409bd99[m Add dockerfile to create backend image
+[33m660a088[m Add dockerfile to create backend image
+[33m559b12d[m Add dockerfile to create backend image
+[33m756c8d5[m Add dockerfile to create backend image
+[33m683e1e8[m Test Ci Backend run with docker
+[33m6cbfc99[m Test Ci Backend run with docker
+[33m8261d15[m Test Ci Backend run with docker
+[33mefa1727[m Test Ci Backend run with docker
+[33m460a268[m Merge remote-tracking branch 'origin/main' into phong
+[33me3da397[m config jest
+[33m04f584b[m Merge pull request #12
+[33m076fac6[m E2E test & ci/cd
+[33maffd4e7[m Merge pull request #11
+[33mf7acf69[m E2E test & ci/cd
+[33m87cc320[m Merge pull request #10
+[33mc7bc501[m E2E test & ci/cd
+[33ma0ad223[m Make mvnw executable before running backend tests
+[33ma4854a7[m Merge pull request #9
+[33m32e7877[m E2E test & ci/cd
+[33mce494e0[m Merge pull request #8
+[33m7efeaf7[m product managerment
+[33me3901fe[m Run frontend in background for E2E tests
+[33mf81cd3a[m Update login-tests.yml
+[33m5cfbaf4[m Merge pull request #7
+[33mf1f024b[m test e2e login
+[33mceac19d[m Merge pull request #6
+[33mc0b0aed[m test e2e login
+[33m87fd7b0[m Merge pull request #5
+[33me26b641[m test e2e login
+[33m67c49b5[m Merge pull request #4 from TphuSGU/nomkimchi
+[33m9ff192e[m test e2e login
+[33mb9fb714[m Merge remote-tracking branch 'origin/main' into phong
+[33mc59c3c4[m fetch login
+[33md058500[m thay modal
+[33m76317b4[m[33m ([m[1;31morigin/Tphu[m[33m)[m sua giao dien
+[33m0bf690d[m Merge pull request #2 from TphuSGU/nomkimchi
+[33ma4101fe[m fix them chut auth nua la xong
+[33m2ae693f[m xem readme -> run
+[33m2e7c8fe[m frontend + test
+[33mf6fdb5f[m fisrt push
+[33m6d6fce2[m Initial commit
